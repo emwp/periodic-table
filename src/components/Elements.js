@@ -1,14 +1,13 @@
-import React from "react";
-import data from "../data/data.json";
-import styled from "styled-components";
+import React from 'react';
+import data from '../data/data.json';
+import styled from 'styled-components';
 
 const Elements = () => {
   return (
     <React.Fragment>
       {data.elements.map((el, index) => {
-        console.log(el.symbol);
         return (
-          <Element>
+          <Element key={data.elements[index].name}>
             <div className="element_number">{el.number}</div>
             <div className="element_symbol">{el.symbol}</div>
           </Element>
@@ -32,9 +31,8 @@ const Element = styled.div`
   display: flex;
   .element_number {
     font-size: 0.7vw;
-    margin-top: 0;
-    margin-left: 0;
-    display: flex;
+    /* margin-top: 0;
+    margin-left: 0; */
   }
   .element_symbol {
     position: absolute;
