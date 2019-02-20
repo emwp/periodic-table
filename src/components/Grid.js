@@ -25,6 +25,7 @@ const GridLayout = styled.div`
   box-sizing: border-box;
   display: grid;
   grid-template-columns: repeat(17, auto) 1fr;
+  grid-template-rows: repeat(10, auto) 1fr;
   width: 90%;
 
   /* background: yellow; */
