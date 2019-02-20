@@ -1,67 +1,24 @@
-import React, { Component } from 'react';
-import styled from 'styled-components';
+import React, { Component } from "react";
+import styled from "styled-components";
+import data from "../data/data.json";
+import Elements from "./Elements";
 
 class Grid extends Component {
+  componentDidMount() {
+    console.log(data.elements[0].name);
+  }
+
   render() {
     return (
       <Wrapper>
         <h1>Periodic Table</h1>
         <GridLayout>
-          <Element>1</Element>
-          <Element>2</Element>
-          <Element>3</Element>
-          <Element>4</Element>
-          <Element>1</Element>
-          <Element>2</Element>
-          <Element>3</Element>
-          <Element>4</Element>
-          <Element>1</Element>
-          <Element>2</Element>
-          <Element>3</Element>
-          <Element>4</Element>
-          <Element>1</Element>
-          <Element>2</Element>
-          <Element>3</Element>
-          <Element>4</Element>
-          <Element>1</Element>
-          <Element>2</Element>
-          <Element>3</Element>
-          <Element>4</Element>
-          <Element>1</Element>
-          <Element>2</Element>
-          <Element>3</Element>
-          <Element>4</Element>
-          <Element>1</Element>
-          <Element>2</Element>
-          <Element>3</Element>
-          <Element>4</Element>
-          <Element>1</Element>
-          <Element>2</Element>
-          <Element>3</Element>
-          <Element>4</Element>
-          <Element>1</Element>
-          <Element>2</Element>
-          <Element>3</Element>
-          <Element>4</Element>
-          <Element>1</Element>
-          <Element>2</Element>
-          <Element>3</Element>
-          <Element>4</Element>
+          <Elements />
         </GridLayout>
       </Wrapper>
     );
   }
 }
-
-const Element = styled.div`
-  cursor: pointer;
-  width: 5vw;
-  height: 5vw;
-  padding: 2px;
-  border: 1px solid #333333;
-  border-collapse: collapse;
-  overflow: hidden;
-`;
 
 const GridLayout = styled.div`
   /* width: 90%; */
@@ -77,7 +34,6 @@ const Wrapper = styled.div`
   /* background: red; */
   width: 90%;
   margin: 0 5%;
-
   h1 {
     text-align: center;
   }
