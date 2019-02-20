@@ -5,9 +5,15 @@ import styled from 'styled-components';
 const Elements = () => {
   return (
     <React.Fragment>
-      {data.elements.map((el, index) => {
+      {data.elements.map(el => {
+        let xpos = el.xpos;
+        let ypos = el.ypos;
+        console.log(xpos, ypos);
         return (
-          <Element key={data.elements[index].name}>
+          <Element
+            key={el.name}
+            style={{ gridRowStart: ypos, gridColumnStart: xpos }}
+          >
             <div className="element_number">{el.number}</div>
             <div className="element_symbol">{el.symbol}</div>
           </Element>
