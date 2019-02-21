@@ -1,92 +1,87 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import data from '../data/data.json';
 import styled from 'styled-components';
 import Info from './Info';
 
-class Elements extends Component {
-  state = {
-    element: {},
-    focus: false
+const Elements = () => {
+  const [element, setElement] = useState({});
+
+  const setElementOnClick = e => {
+    e.preventDefault();
+    let num = parseInt(e.target.innerText) - 1;
+    setElement(data.elements[num]);
   };
 
-  render() {
-    const setElementOnClick = e => {
-      e.preventDefault();
-      let num = parseInt(e.target.innerText) - 1;
-      this.setState({ element: data.elements[num], focus: !this.state.focus });
-    };
+  return (
+    <React.Fragment>
+      {data.elements.map(el => {
+        let xpos = el.xpos;
+        let ypos = el.ypos;
+        let category;
 
-    return (
-      <React.Fragment>
-        {data.elements.map(el => {
-          let xpos = el.xpos;
-          let ypos = el.ypos;
-          let category;
-
-          if (el.category === 'alkaline earth metal') {
-            category = '#F3F300';
-          } else if (
-            el.category === 'noble gas' ||
-            el.category === 'unknown, predicted to be noble gas'
-          ) {
-            category = '#88AAFF';
-          } else if (
-            el.category === 'alkali metal' ||
-            el.category === 'unknown, but predicted to be an alkali metal'
-          ) {
-            category = '#FFAA00';
-          } else if (
-            el.category === 'transition metal' ||
-            el.category === 'unknown, probably transition metal'
-          ) {
-            category = '#DD9999';
-          } else if (el.category === 'diatomic nonmetal') {
-            category = '#00EE00';
-          } else if (el.category === 'polyatomic nonmetal') {
-            category = '#00EE00';
-          } else if (
-            el.category === 'post-transition metal' ||
-            el.category === 'unknown, probably post-transition metal'
-          ) {
-            category = '#11DDBB';
-          } else if (
-            el.category === 'metalloid' ||
-            el.category === 'unknown, probably metalloid'
-          ) {
-            category = '#00EE00';
-          } else if (el.category === 'lanthanide') {
-            category = '#FFAA88';
-          } else if (el.category === 'actinide') {
-            category = '#EACBE0';
-          }
-          return (
-            <Element
-              key={el.name}
-              style={{
-                gridRowStart: ypos,
-                gridColumnStart: xpos,
-                background: category
-              }}
-              onClick={e => setElementOnClick(e)}
-            >
-              <div className="element_symbol">{el.symbol}</div>
-              <div className="element_number">{el.number}</div>
-            </Element>
-          );
-        })}
-        ,
-        <Info
-          style={{
-            gridColumnStart: '4',
-            gridRowStart: '3'
-          }}
-          name={this.state.element.name}
-          summary={this.state.element.summary}
-        />
-      </React.Fragment>
-    );
-  }
-}
+        if (el.category === 'alkaline earth metal') {
+          category = '#F3F300';
+        } else if (
+          el.category === 'noble gas' ||
+          el.category === 'unknown, predicted to be noble gas'
+        ) {
+          category = '#88AAFF';
+        } else if (
+          el.category === 'alkali metal' ||
+          el.category === 'unknown, but predicted to be an alkali metal'
+        ) {
+          category = '#FFAA00';
+        } else if (
+          el.category === 'transition metal' ||
+          el.category === 'unknown, probably transition metal'
+        ) {
+          category = '#DD9999';
+        } else if (el.category === 'diatomic nonmetal') {
+          category = '#00EE00';
+        } else if (el.category === 'polyatomic nonmetal') {
+          category = '#00EE00';
+        } else if (
+          el.category === 'post-transition metal' ||
+          el.category === 'unknown, probably post-transition metal'
+        ) {
+          category = '#11DDBB';
+        } else if (
+          el.category === 'metalloid' ||
+          el.category === 'unknown, probably metalloid'
+        ) {
+          category = '#00EE00';
+        } else if (el.category === 'lanthanide') {
+          category = '#FFAA88';
+        } else if (el.category === 'actinide') {
+          category = '#EACBE0';
+        }
+        return (
+          <Element
+            key={el.name}
+            style={{
+              gridRowStart: ypos,
+              gridColumnStart: xpos,
+              background: category
+            }}
+            onClick={e => setElementOnClick(e)}
+          >
+            <div className="element_symbol">{el.symbol}</div>
+            <div className="element_number">{el.number}</div>
+          </Element>
+        );
+      })}
+      ,
+      <Info
+        style={{
+          gridColumnStart: '4',
+          gridRowStart: '3'
+        }}
+        name={element.name}
+        summary={element.summary}
+      />
+    </React.Fragment>
+  );
+};
 
 const Element = styled.div`
   cursor: pointer;

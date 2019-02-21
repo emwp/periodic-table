@@ -28,6 +28,7 @@ const Wrapper = styled.div`
   width: 90%;
   margin: 0 5%;
   h1 {
+    font-size: 3vw;
     text-align: center;
   }
 `;
