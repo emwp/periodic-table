@@ -5,13 +5,29 @@ import Info from './Info';
 
 const Elements = () => {
   const [element, setElement] = useState({});
+  const [active, setActive] = useState();
 
   const setElementOnClick = e => {
     e.preventDefault();
     let num = parseInt(e.target.innerText) - 1;
     setElement(data.elements[num]);
+    setActive(!active);
   };
 
+  let displayInfo;
+
+  if (active) {
+    displayInfo = (
+      <Info
+        style={{
+          gridColumnStart: '4',
+          gridRowStart: '3'
+        }}
+        name={element.name}
+        summary={element.summary}
+      />
+    );
+  }
   return (
     <React.Fragment>
       {data.elements.map(el => {
@@ -70,15 +86,7 @@ const Elements = () => {
           </Element>
         );
       })}
-      ,
-      <Info
-        style={{
-          gridColumnStart: '4',
-          gridRowStart: '3'
-        }}
-        name={element.name}
-        summary={element.summary}
-      />
+      {displayInfo}
     </React.Fragment>
   );
 };
