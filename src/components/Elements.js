@@ -5,15 +5,16 @@ import Info from './Info';
 
 const Elements = () => {
   const [element, setElement] = useState({});
-  const [active, setActive] = useState();
+  const [active, setActive] = useState(true);
 
   const setElementOnClick = e => {
     e.preventDefault();
     let num = parseInt(e.target.innerText) - 1;
     setElement(data.elements[num]);
-    setActive(!active);
+    if (num + 1 === element.number || active === false) {
+      setActive(!active);
+    }
   };
-
   let displayInfo;
 
   if (active) {
