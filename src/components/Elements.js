@@ -18,16 +18,7 @@ const Elements = () => {
   let displayInfo;
 
   if (active) {
-    displayInfo = (
-      <Info
-        style={{
-          gridColumnStart: '4',
-          gridRowStart: '3'
-        }}
-        name={element.name}
-        summary={element.summary}
-      />
-    );
+    displayInfo = <Info name={element.name} summary={element.summary} />;
   }
   return (
     <React.Fragment>

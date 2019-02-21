@@ -6,6 +6,7 @@ const Info = props => {
     <WrapperInfo>
       <div>
         <h3>{props.name}</h3>
+        <div className="info_details" />
         <p>{props.summary}</p>
       </div>
     </WrapperInfo>
@@ -22,6 +23,10 @@ const WrapperInfo = styled.div`
   font-size: 1.2vw;
   h3 {
     margin-top: 0;
+  }
+  div.info_details {
+    display: flex;
+    margin-bottom: 0;
   }
 `;
 
