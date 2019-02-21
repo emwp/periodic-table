@@ -4,20 +4,24 @@ import styled from 'styled-components';
 const Info = props => {
   return (
     <WrapperInfo>
-      <h1>{props.name}</h1>
+      <h3>{props.name}</h3>
       <p>{props.summary}</p>
     </WrapperInfo>
   );
 };
 
 const WrapperInfo = styled.div`
-  grid-column: 3 / 17;
-  grid-row: 11 / 18;
-  /* margin: 0 10px; */
-  /* width: 49vw;
-  height: 9vw; */
+  grid-column: 3 / 13;
+  grid-row: 2 / 4;
+  padding: 0 0.5vw;
+  overflow: scroll;
+  text-align: center;
+  max-height: 10vw;
+  font-size: 1.2vw;
 
-  box-sizing: border-box;
+  h3 {
+    margin-top: 0;
+  }
 `;
 
 export default Info;
