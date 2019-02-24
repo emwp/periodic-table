@@ -2,6 +2,9 @@
 
 Periodic table built with React, using CSS grid layout to render each element into a grid item. 
 
+[Check it out!](https://emwp-periodic-table.netlify.com "Periodic Table")
+
+
 Made with:
 - React
 - Styled Components
