@@ -7,4 +7,4 @@ Made with:
 - Styled Components
 - CSS Grid
 
-
+![Periodic Table](/src/imgs/screenshot.png)
