@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import data from '../data/data.json';
 import styled from 'styled-components';
-import Info from './Info';
 
 const Elements = () => {
   const [element, setElement] = useState({});
@@ -18,7 +17,14 @@ const Elements = () => {
   let displayInfo;
 
   if (active) {
-    displayInfo = <Info name={element.name} summary={element.summary} />;
+    displayInfo = (
+      <ElementInfo>
+        <div>
+          <h3>{element.name}</h3>
+          <p>{element.summary}</p>
+        </div>
+      </ElementInfo>
+    );
   }
   return (
     <React.Fragment>
@@ -97,7 +103,6 @@ const Element = styled.div`
   &:hover {
     background: white !important;
     border-color: 888888;
-    /* color: white; */
   }
 
   .element_number {
@@ -106,8 +111,6 @@ const Element = styled.div`
     position: absolute;
     width: inherit;
     height: inherit;
-    /* margin-top: 0;
-    margin-left: 0; */
   }
   .element_symbol {
     position: absolute;
@@ -117,6 +120,23 @@ const Element = styled.div`
     height: inherit;
     justify-content: center;
     align-items: center;
+  }
+`;
+
+const ElementInfo = styled.div`
+  grid-column: 3 / 13;
+  grid-row: 2 / 4;
+  padding: 0 0.5vw;
+  overflow-y: scroll;
+  text-align: center;
+  max-height: 10vw;
+  font-size: 1.2vw;
+  h3 {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  p {
+    margin: 0.5vw 0 0 0;
   }
 `;
 
