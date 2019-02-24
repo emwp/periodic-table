@@ -1,10 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import data from '../data/data.json';
 import styled from 'styled-components';
 
 const Elements = () => {
   const [element, setElement] = useState({});
-  const [active, setActive] = useState(true);
+  const [active, setActive] = useState(false);
+
+  useEffect(() => {
+    console.log(active);
+  });
 
   const setElementOnClick = e => {
     e.preventDefault();
@@ -21,6 +25,18 @@ const Elements = () => {
       <ElementInfo>
         <div>
           <h3>{element.name}</h3>
+          <div className="element_details">
+            {element.boil ? <p>Boil: {element.boil} K</p> : null}
+            {element.melt ? <p>Melt: {element.melt} K</p> : null}
+            {element.atomic_mass ? (
+              <p>Atomic Mass: {element.atomic_mass.toFixed(1)}</p>
+            ) : null}
+            {element.density ? (
+              <p>
+                Density: {element.density} g/cm<sup>3</sup>
+              </p>
+            ) : null}
+          </div>
           <p>{element.summary}</p>
         </div>
       </ElementInfo>
@@ -137,6 +153,13 @@ const ElementInfo = styled.div`
   }
   p {
     margin: 0.5vw 0 0 0;
+  }
+  div.element_details {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    color: #c6b900;
+    font-size: 1.1vw;
   }
 `;
 
