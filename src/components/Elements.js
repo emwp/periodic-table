@@ -1,14 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import data from '../data/data.json';
 import styled from 'styled-components';
 
 const Elements = () => {
   const [element, setElement] = useState({});
   const [active, setActive] = useState(false);
-
-  useEffect(() => {
-    console.log(active);
-  });
 
   const setElementOnClick = e => {
     e.preventDefault();
@@ -127,7 +123,7 @@ const Element = styled.div`
   }
 
   .element_number {
-    font-size: 0.7vw;
+    font-size: 0.8vw;
     display: flex;
     position: absolute;
     width: inherit;
@@ -135,7 +131,7 @@ const Element = styled.div`
   }
   .element_symbol {
     position: absolute;
-    font-size: 2vw;
+    font-size: 2.1vw;
     display: flex;
     width: inherit;
     height: inherit;

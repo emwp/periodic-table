@@ -6,6 +6,27 @@ const Grid = props => {
   return (
     <Wrapper>
       <h1>Periodic Table</h1>
+      <div>
+        <HeaderInfo>
+          <p>
+            Made by{' '}
+            <a
+              href="https://emwp.me/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Everton Pereira
+            </a>
+          </p>
+          <a
+            href="https://github.com/emwp/periodic-table"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i className="fab fa-github"> Source Code</i>
+          </a>
+        </HeaderInfo>
+      </div>
       <GridLayout>
         <Elements />
       </GridLayout>
@@ -31,6 +52,14 @@ const Wrapper = styled.div`
     font-size: 3vw;
     text-align: center;
   }
+`;
+
+const HeaderInfo = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  font-size: 1.7vw;
 `;
 
 export default Grid;
