@@ -23,6 +23,7 @@ const WrapperInfo = styled.div`
   font-size: 1.2vw;
   h3 {
     margin-top: 0;
+    margin-bottom: 0;
   }
   div.info_details {
     display: flex;
