@@ -15,11 +15,7 @@ body {
   box-sizing: border-box;
   max-width: 2560px;
   background: #ffefba; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to left,
-    #ffffff,
-    #ffefba
-  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to left, #ffffff, #ffefba); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(
     to left,
     #ffffff,
