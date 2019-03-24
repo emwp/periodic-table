@@ -11,3 +11,6 @@ Made with:
 - CSS Grid
 
 ![Periodic Table](/src/imgs/screenshot.png)
+
+
+Inspired By: [TamalAnwar](https://github.com/TamalAnwar/periodic-table)
